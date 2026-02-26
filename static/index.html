@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List.am Scraper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 List.am Scraper</h1>
+            <p>Product scraper with Cloudflare bypass and Telegram notifications</p>
+        </header>
+
+        <main>
+            <div class="card settings-card">
+                <h2>Search Settings</h2>
+                <form id="scrape-form">
+                    <div class="form-group">
+                        <label for="keyword">Keyword:</label>
+                        <input type="text" id="keyword" name="keyword" placeholder="Example: macbook" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="currency">Currency:</label>
+                        <select id="currency" name="currency" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 1rem; box-sizing: border-box;">
+                            <option value="0">Armenian Dram (AMD)</option>
+                            <option value="1">US Dollars (USD)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="maxPrice">Maximum Price:</label>
+                        <input type="number" id="maxPrice" name="maxPrice" placeholder="Example: 500000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="maxPages">Number of pages:</label>
+                        <input type="number" id="maxPages" name="maxPages" value="3" required>
+                    </div>
+
+                    <hr>
+
+                    <h2>Telegram Notifications (Optional)</h2>
+                    <div class="form-group">
+                        <label for="tgToken">Bot Token:</label>
+                        <input type="password" id="tgToken" name="tgToken" placeholder="123456789:ABCDefgh...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tgChatId">Chat ID:</label>
+                        <input type="text" id="tgChatId" name="tgChatId" placeholder="Your ID or Channel ID">
+                    </div>
+
+                    <button type="submit" id="startBtn">
+                        <span class="btn-text">🚀 Start Scraper</span>
+                        <div class="loader hidden"></div>
+                    </button>
+                </form>
+            </div>
+
+            <div class="results-container">
+                <div class="card logs-card">
+                    <h2>📝 Live Console</h2>
+                    <div id="logs" class="terminal-logs"></div>
+                </div>
+
+                <div class="card items-card">
+                    <h2>🛒 Found Products</h2>
+                    <div id="tabsHeader" class="tabs-header">
+                        <!-- Tab buttons will be generated here -->
+                    </div>
+                    <div id="tabsContent" class="tabs-content">
+                        <!-- Tab panes with tables will be generated here -->
+                        <div class="empty-state" id="emptyState">Results will appear here...</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
